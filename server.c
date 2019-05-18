@@ -51,6 +51,9 @@ int main(int argc, char *argv[])
             version(CURRENT_VERSION);
     }
 
+    /* give the user feedback about the server */
+    feedback(portno, backlog);
+
     /* upon succesfully creating the socket, socket() returns a non-negative number */
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd < 0) 
@@ -68,7 +71,8 @@ int main(int argc, char *argv[])
     /* this marks the socket as passive, so we can receive things on it */
     if (listen(sockfd, backlog) < 0)
 
-        /* this doesn't even happen when the backlog is < 0, so i would love to hear from you if you have this error but better safe than sorry */
+        /* this doesn't even happen when the backlog is < 0, 
+        so i would love to hear from you if you have this error but better safe than sorry */
         error("ERROR on listening");
         
     /* keep receiving things from clients */    

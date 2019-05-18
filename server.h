@@ -70,3 +70,18 @@ bool isNumber(char *s)
     /* all characters are digits */
     return true; 
 } 
+
+void feedback(int portno, int backlog) {
+    printf("\n"
+"      _                 _             _                                                \n"
+"     (_)               | |           | |                                               \n"
+"  ___ _ _ __ ___  _ __ | | ___ ______| |_ ___ _ __ ______ ___  ___ _ ____   _____ _ __ \n"
+" / __| | '_ ` _ \\| '_ \\| |/ _ \\______| __/ __| '_ \\______/ __|/ _ \\ '__\\ \\ / / _ \\ '__|\n"
+" \\__ \\ | | | | | | |_) | |  __/      | || (__| |_) |     \\__ \\  __/ |   \\ V /  __/ |   \n"
+" |___/_|_| |_| |_| .__/|_|\\___|       \\__\\___| .__/      |___/\\___|_|    \\_/ \\___|_|   \n"
+"                 | |                         | |                                       \n"
+"                 |_|                         |_|                                       \n");
+    printf("\nStarting the server\n");
+    printf("Port:               %i\n", portno);
+    printf("Backlog size:       %i\n", backlog);
+}
