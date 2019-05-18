@@ -24,6 +24,7 @@ Run `./simple-tcp-server -h` to see all the options. As per now, there are not a
 -b / --backlog     How many connections to accept in queue
                    (default: 10)
 -h / --help        Show this information
+-v / --version     Show the current version of simple-tcp-server
 ```
 
 Then you can connect to it. The easiest way is to use telnet.
