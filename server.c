@@ -78,6 +78,9 @@ int main(int argc, char *argv[])
     /* keep receiving things from clients */    
     while (1) {
 
+        /* clear the buffer */
+        bzero(buffer, 256);
+
         /* the size of the struct */
         addrlen = sizeof(serv_addr);
 
