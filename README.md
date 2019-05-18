@@ -15,11 +15,11 @@ Using the application is very easy. You can run the server with `./server`. Of c
 Run `./server -h` to see all the options. As per now, there are not a lot:
 
 ```
--p / --port        Which port to use to open the server on \n"
-                   (default: 3490)\n"
--b / --backlog     How many connections to accept in queue\n"
-                   (default: 10)\n"
--h / --help        Show this information\n"
+-p / --port        Which port to use to open the server on
+                   (default: 3490)
+-b / --backlog     How many connections to accept in queue
+                   (default: 10)
+-h / --help        Show this information
 ```
 
 Then you can connect to it. The easiest way is to use telnet.
