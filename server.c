@@ -12,9 +12,9 @@
 
 int main(int argc, char *argv[])
 {
-    int sockfd, newsockfd, portno, clilen, backlog;
+    int sockfd, newsockfd, portno, addrlen, backlog;
     char buffer[256];
-    struct sockaddr_in serv_addr, cli_addr;
+    struct sockaddr_in serv_addr;
     int n;
 
     /* this port can be changed in server.h, but you should of course pass a port with --port */
@@ -78,12 +78,12 @@ int main(int argc, char *argv[])
     /* keep receiving things from clients */    
     while (1) {
 
-        /* the size of the address of the client */
-        clilen = sizeof(cli_addr);
+        /* the size of the struct */
+        addrlen = sizeof(serv_addr);
 
         /* note: accept blocks the program until it gets a connection
         can be disabled with the flag SOCK_NONBLOCK */
-        newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr, &clilen);
+        newsockfd = accept(sockfd, (struct sockaddr *) &serv_addr, &addrlen);
 
         /* return value should be 0 once again */
         if (newsockfd < 0) 
