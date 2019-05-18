@@ -3,7 +3,7 @@
 SRCS = server.c
 CFLAGS = -Wall -g -Wimplicit-function-declaration
 LIBS = . 
-TARGET = server
+TARGET = simple-tcp-server
 
 all: $(SRCS)
 	@echo Installing the server...

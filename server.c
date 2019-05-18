@@ -7,6 +7,9 @@
 
 #include <server.h>
 
+/* the current version of the software */
+#define CURRENT_VERSION "0.1.3"
+
 int main(int argc, char *argv[])
 {
     int sockfd, newsockfd, portno, clilen, backlog;
@@ -41,6 +44,11 @@ int main(int argc, char *argv[])
 
             /* show usage information */
             usage();
+
+        if (!strcmp(argv[i], "-v") || !strcmp(argv[i], "--version")) 
+
+            /* show current version */
+            version(CURRENT_VERSION);
     }
 
     /* upon succesfully creating the socket, socket() returns a non-negative number */

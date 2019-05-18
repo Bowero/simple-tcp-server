@@ -25,7 +25,7 @@ void usage() {
 
     // print the help info
     printf("\n"
-    "Usage: ./main --port 3490 --backlog 10\n"
+    "Usage: ./simple-tcp-server --port 3490 --backlog 10\n"
     "\n"
     "   This application is a small program that allows you to run a local TCP server.\n"
     "   The program is easy to extend.\n" 
@@ -35,17 +35,23 @@ void usage() {
     "\n"
     "Options:\n"
     "\n"
-    "   -p / --port        Which port to use to open the server on \n"
-    "                   (default: 3490)\n"
-    "   -b / --backlog     How many connections to accept in queue\n"
-    "                   (default: 10)\n"
-    "   -h / --help        Show this information\n"
+    "   -p / --port         Which port to use to open the server on \n"
+    "                       (default: 3490)\n"
+    "   -b / --backlog      How many connections to accept in queue\n"
+    "                       (default: 10)\n"
+    "   -h / --help         Show this information\n"
+    "   -v / --version      Show the current version of simple-tcp-server\n"
     "\n"
     "Report bugs to ik@robinmartijn.nl or resolve them yourself.\n"
     "\n"
     );
 
     // close the application
+    exit(0);
+}
+
+void version(char *cv) {
+    printf("Current version: %s\n", cv);
     exit(0);
 }
 

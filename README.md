@@ -11,8 +11,8 @@ make install
 ```
 
 ## Usage
-Using the application is very easy. You can run the server with `./server`. Of course, you can also pass arguments to the application.
-Run `./server -h` to see all the options. As per now, there are not a lot:
+Using the application is very easy. You can run the server with `./simple-tcp-server`. Of course, you can also pass arguments to the application.
+Run `./simple-tcp-server -h` to see all the options. As per now, there are not a lot:
 
 ```
 -p / --port        Which port to use to open the server on
