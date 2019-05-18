@@ -1,6 +1,10 @@
 # simple-tcp-server
 As an assignment for computer networks, we had to create a TCP server in a low level language. This is what I've made.
 
+<p align="center">
+  <img src="https://i.imgur.com/PAujqx8.png" alt="The simple CLI of the server" height="300px" />
+</p>
+
 ## Installation
 If you want to install this server to continue the development of it or to use it, you can use the Makefile.
 
