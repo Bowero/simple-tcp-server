@@ -14,6 +14,9 @@
 /* the maximum length of the queue of pending connections */
 #define DEFAULT_BACKLOG 10
 
+/* the maximum size of the incoming buffer */
+#define DEFAULT_BUFFERSIZE 256
+
 void error(char *msg)
 {
     /* convert the errno to something useful */
@@ -39,6 +42,8 @@ void usage() {
     "                       (default: 3490)\n"
     "   -b / --backlog      How many connections to accept in queue\n"
     "                       (default: 10)\n"
+    "   -bs / --buffersize  The size of the buffer of the incoming messages\n"
+    "                       (default: 256)\n"
     "   -h / --help         Show this information\n"
     "   -v / --version      Show the current version of simple-tcp-server\n"
     "\n"
@@ -71,7 +76,7 @@ bool isNumber(char *s)
     return true; 
 } 
 
-void feedback(int portno, int backlog) {
+void feedback(int portno, int backlog, int buffersize) {
     printf("\n"
 "      _                 _             _                                                \n"
 "     (_)               | |           | |                                               \n"
@@ -84,4 +89,5 @@ void feedback(int portno, int backlog) {
     printf("\nStarting the server\n");
     printf("Port:               %i\n", portno);
     printf("Backlog size:       %i\n", backlog);
+    printf("Buffersize:         %i\n", buffersize);
 }

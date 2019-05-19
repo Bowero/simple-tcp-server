@@ -8,14 +8,16 @@
 #include <server.h>
 
 /* the current version of the software */
-#define CURRENT_VERSION "0.1.3"
+#define CURRENT_VERSION "0.1.4"
 
 int main(int argc, char *argv[])
 {
     int sockfd, newsockfd, portno, addrlen, backlog;
-    char buffer[256];
     struct sockaddr_in serv_addr;
     int n;
+
+    /* size of the incoming buffer */
+    int buffersize = DEFAULT_BUFFERSIZE;
 
     /* this port can be changed in server.h, but you should of course pass a port with --port */
     portno = atoi(DEFAULT_PORT);
@@ -39,6 +41,12 @@ int main(int argc, char *argv[])
             if (isNumber(argv[i+1]))
                 backlog = atoi(argv[i+1]);
 
+        if (!strcmp(argv[i], "-bs") || !strcmp(argv[i], "--buffersize"))
+
+            /* only use the passed argument if it proves to be a number */
+            if (isNumber(argv[i+1]))
+                buffersize = atoi(argv[i+1]);
+
         /* the user wants information about the application */
         if (!strcmp(argv[i], "-h") || !strcmp(argv[i], "--help")) 
 
@@ -51,8 +59,11 @@ int main(int argc, char *argv[])
             version(CURRENT_VERSION);
     }
 
+    /* the incoming buffer */
+    char buffer[buffersize];
+
     /* give the user feedback about the server */
-    feedback(portno, backlog);
+    feedback(portno, backlog, buffersize);
 
     /* upon succesfully creating the socket, socket() returns a non-negative number */
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -79,7 +90,7 @@ int main(int argc, char *argv[])
     while (1) {
 
         /* clear the buffer */
-        bzero(buffer, 256);
+        bzero(buffer, buffersize);
 
         /* the size of the struct */
         addrlen = sizeof(serv_addr);
@@ -93,10 +104,8 @@ int main(int argc, char *argv[])
             error("ERROR on accept");
 
         /* the maximum amount of received bytes is 255. to change this,
-        you also have to change the buffer size.
-        
-        TODO: make an argument to do this */
-        n = read(newsockfd,buffer,255);
+        pass --buffersize */
+        n = read(newsockfd,buffer,buffersize);
 
         /* last error handling: you get the idea
         returned value should be 0 */
