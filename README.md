@@ -21,11 +21,15 @@ Run `./simple-tcp-server -h` to see all the options. As per now, there are not a
 ```
 -p / --port        Which port to use to open the server on
                    (default: 3490)
+
 -b / --backlog     How many connections to accept in queue
                    (default: 10)
+
 -bs / --buffersize The size of the buffer of the incoming messages
                    (default: 256)
+
 -h / --help        Show this information
+
 -v / --version     Show the current version of simple-tcp-server
 ```
 
