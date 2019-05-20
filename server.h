@@ -80,7 +80,7 @@ bool isNumber(char *s)
     return true; 
 } 
 
-void feedback(int portno, int backlog, int buffersize) {
+void feedback(int portno, int backlog, int buffersize, char *version) {
     printf("\n"
 "      _                 _             _                                                \n"
 "     (_)               | |           | |                                               \n"
@@ -91,6 +91,8 @@ void feedback(int portno, int backlog, int buffersize) {
 "                 | |                         | |                                       \n"
 "                 |_|                         |_|                                       \n");
     printf("\nStarting the server\n");
+    printf("Version:            %s\n", version);
+    printf("\n");
     printf("Port:               %i\n", portno);
     printf("Backlog size:       %i\n", backlog);
     printf("Buffersize:         %i\n", buffersize);

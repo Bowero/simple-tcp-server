@@ -8,7 +8,7 @@
 #include <server.h>
 
 /* the current version of the software */
-#define CURRENT_VERSION "0.1.4"
+#define CURRENT_VERSION "0.2.0"
 
 int main(int argc, char *argv[])
 {
@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
     char buffer[buffersize];
 
     /* give the user feedback about the server */
-    feedback(portno, backlog, buffersize);
+    feedback(portno, backlog, buffersize, CURRENT_VERSION);
 
     /* upon succesfully creating the socket, socket() returns a non-negative number */
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
